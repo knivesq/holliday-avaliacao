@@ -15,8 +15,8 @@ module.exports = {
 
 
     ],
-    // mode: 'development',
-    mode: 'production',
+    mode: 'development',
+    // mode: 'production',
     entry: {
         app: './src/index.js'
     },
@@ -54,6 +54,6 @@ module.exports = {
             },
         ]
     },
-    devtool: 'source-map'
-    // devtool: 'eval'
+    // devtool: 'source-map'
+    devtool: 'eval'
 }

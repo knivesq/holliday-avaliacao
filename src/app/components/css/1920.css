@@ -1,0 +1,216 @@
+@media only screen and (min-width: 1367px) {
+    /* radios styles */
+    .form-radios {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 15px;
+    }
+    .radio-wrapper {
+        display: flex;
+    }
+    .box-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .nota-wrapper {
+        display: flex;
+        width: 16.5vw;
+        margin: 10px 0;
+        justify-content: space-between;
+    }
+    .title-wrapper {
+        padding: 0 10px;
+        border-right: 2px solid;
+        width: 185px;
+        display: flex;
+        align-items: center;
+    }
+    /* radios styles */
+    .mini-title {
+        margin: 0 !important;
+    }
+    .input-wrapper {
+        display: flex;
+    }
+    .form-aval {
+        margin: 5px 0;
+        display: flex;
+    }
+    .form-btn {
+        padding: 20px 10px;
+        width: 500px !important;
+        box-sizing: border-box;
+        background-color: #5ABA51;
+        color: #fff;
+        border-style: none;
+        float: right;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .form-textarea {
+        width: 500px;
+        box-sizing: border-box;
+        height: 20vh;
+    }
+    .form-top-text {
+        margin: 10px 10px;
+    }
+    .success {
+        padding: 10px;
+        background-color: #DAF7A6;
+        border-radius: 5px;
+    }
+    .qtd-danger {
+        padding: 10px;
+        background-color: #FF3936;
+        border-radius: 5px;
+        color: #fff !important;
+    }
+    .component-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-wrapper-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .textarea-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .textarea-wrapper p {
+        padding: 0 50px;
+    }
+    .form-feedback {
+        padding: 5px 10px;
+        margin: 10px 0;
+        width: 500px;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: #262626;
+        color: #fff;
+        border: 1px solid
+    }
+    .form-feedback-overall {
+        padding: 5px 0 20px 10px;
+        margin: 10px 0;
+        width: 500px;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: lightgray;
+        color: #222222;
+    }
+    .overall {
+        text-align: center;
+    }
+    .rating {
+        overflow: hidden;
+        vertical-align: bottom;
+        display: inline-block;
+        width: 90px;
+        height: 30px;
+    }
+    .rating>input {
+        opacity: 0;
+        margin-right: -100%;
+    }
+    .rating>label {
+        position: relative;
+        display: block;
+        float: right;
+        background: url('https://cdn.awsli.com.br/399/399180/arquivos/star-off-big.png');
+        background-size: 30px 30px;
+        margin: 0 10px;
+    }
+    .rating>label:before {
+        display: block;
+        opacity: 0;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background: url('https://cdn.awsli.com.br/399/399180/arquivos/star-on-big.png');
+        background-size: 30px 30px;
+        transition: opacity 0.2s linear;
+    }
+    .rating>label:before {
+        display: block;
+        opacity: 0;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background: url('https://cdn.awsli.com.br/399/399180/arquivos/star-half-big.png');
+        background-size: 30px 30px;
+        transition: opacity 0.2s linear;
+    }
+    .rating-full>label:before {
+        display: block;
+        opacity: 1;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background: url('https://cdn.awsli.com.br/399/399180/arquivos/star-on-big.png');
+        background-size: 30px 30px;
+        transition: opacity 0.2s linear;
+    }
+    .rating-half>label:before {
+        display: block;
+        opacity: 1;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background: url('https://cdn.awsli.com.br/399/399180/arquivos/star-half-big.png');
+        background-size: 30px 30px;
+        transition: opacity 0.2s linear;
+    }
+    .title-wrapping {
+        display: flex;
+        justify-content: center;
+    }
+    .title-wrapping h1 {
+        background-color: lightgray;
+        width: 500px;
+        padding: 40px 0;
+        margin: 0;
+    }
+    .preencha {
+        margin: 0;
+    }
+    #nome, #sobrenome, .input-cidade, .input-estado {
+        width: 460px;
+    }
+    .text-wrap {
+        width: 500px;
+        text-align: justify;
+        font-size: 1rem;
+    }
+    .text-wrap h3 {
+        color: #999999;
+        text-decoration: underline;
+        text-align: center;
+        margin: 20px 0
+    }
+     .ddd-telefone {
+        display: flex;
+        justify-content: space-between;
+    }
+    .ddd {
+    }
+    #ddd {
+        width: 40px
+    }
+    #telefone{
+        width: 400px
+    }
+}

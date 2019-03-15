@@ -1,10 +1,9 @@
 import React from 'react'
 import Formulario from './components/formulario';
-
 const App = () => {
     return (
         <React.Fragment>
-           <Formulario/>
+            <Formulario />
         </React.Fragment>
     )
 }
