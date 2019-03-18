@@ -339,16 +339,16 @@
         text-align: center;
         margin: 20px 0
     }
-    #g-recaptcha {
+    .g-recaptcha {
+        width: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
         border: 1px solid rgba(0, 0, 0, 0.2);
-        width: 498px;
-        padding: 30px 0;
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-        margin: 5px 0 14px 0;
+        box-sizing: border-box;
         border-radius: 5px;
-    }
-    #g-recaptcha>div {
-        width: 498px !important;
+        margin-bottom: 10px;
     }
     .ddd-telefone {
         display: flex;
