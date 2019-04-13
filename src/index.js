@@ -15,7 +15,7 @@ if (locationAval.href == "http://localhost:8080/") {
     if (locationAval.href == supposedLocation) {
         let docTitle = document.querySelector('h1.titulo.cor-secundaria');
         docTitle.style.display = "none"
-        if (dataLayerEmail) {
+        if (dataLayerEmail && dataLayerEmail !== "") {
             ReactDOM.render(<App />, document.getElementById('avaliacao'));
         } else {
             ReactDOM.render(<PrecisaFazerLogin />, document.getElementById('avaliacao'));

@@ -48,6 +48,7 @@ export default class Formulario extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.theCaptcha = this.theCaptcha.bind(this);
         this.mudancaEstado = this.mudancaEstado.bind(this);
+        this.mudancaCidade = this.mudancaCidade.bind(this);
     }
 
 
@@ -69,16 +70,31 @@ export default class Formulario extends React.Component {
     }
 
     mudancaEstado(e) {
-        
-        let estados = this.state.estados
+
         this.setState({
             [e.target.name]: e.target.value
-        }, () => {
-             
-             let teste_cidades = estados.filter(uf => uf.nome = this.state.estado)
-            console.log(teste_cidades)
-
         })
+    }
+
+    mudancaCidade(e) {
+        let estados = this.state.estados
+        let teste_cidades = estados.filter(uf => uf.nome.toUpperCase() == this.state.estado)
+        let cidade_url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${teste_cidades[0].id}/municipios`
+        console.log(cidade_url)
+        fetch(cidade_url)
+            .then(response => {
+                if (!response.ok) {
+                    return console.log(response.statusText)
+                } else {
+                    return response.json()
+                }
+            })
+            .then(response => {
+
+                this.setState({
+                    cidades: response
+                })
+            })
     }
     handleSubmit(e) {
 
@@ -141,7 +157,7 @@ export default class Formulario extends React.Component {
                                             _this.setState({
                                                 fetchClass: 'fetch-disabled'
                                             })
-                                            // window.location.replace("https://hollidaystore.lojaintegrada.com.br/")
+                                            window.location.replace("https://atacado.hollidaystore.com.br/")
                                         }, 2000)
                                     }, 2000)
                                 })
@@ -257,7 +273,6 @@ export default class Formulario extends React.Component {
 
 
         let estados_url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-        let cidades = []
         fetch(estados_url)
             .then(response => {
                 if (!response.ok) {
@@ -267,31 +282,9 @@ export default class Formulario extends React.Component {
                 }
             })
             .then(response => {
-                console.log(response)
                 if (this._isMounted) {
                     this.setState({
                         estados: response
-                    }, () => {
-                        let estados = this.state.estados
-                        let cidades = []
-                        estados.map(uf => {
-                            let cidade_url = `http://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf.id}/municipios`
-                            fetch(cidade_url)
-                                .then(response => {
-                                    if (!response.ok) {
-                                        return console.log(response.statusText)
-                                    } else {
-                                        return response.json()
-                                    }
-                                })
-                                .then(response => {
-
-                                    this.setState({
-                                        cidades: response
-                                    })
-                                })
-                        })
-
                     })
                 }
             })
@@ -303,7 +296,11 @@ export default class Formulario extends React.Component {
 
     theCaptcha(value) {
         console.log("Captcha value:", value);
-
+        if (value && value !== "") {
+            this.setState({
+                recaptcha: true
+            })
+        }
     }
     componentWillUnmount() {
         this._isMounted = false;
@@ -340,8 +337,6 @@ export default class Formulario extends React.Component {
                     </option>
                 )
             })
-
-
 
 
         }
@@ -466,7 +461,7 @@ export default class Formulario extends React.Component {
 
                             <div className="margin-sides-10 estado-input margin-phone" >
                                 <label>Estado</label>
-                                <input required list='estado-list' className='input-estado' type='text' name='estado' value={estado} onChange={this.mudancaEstado} placeholder="Digite aqui a sigla do seu estado, exemplo: PE" />
+                                <input required list='estado-list' className='input-estado' type='text' name='estado' value={estado} onChange={this.handleChange} placeholder="Digite aqui seu estado, exemplo: Pernambuco" />
                                 <datalist id="estado-list">
                                     {estadoList}
                                 </datalist>
@@ -474,7 +469,7 @@ export default class Formulario extends React.Component {
 
                             <div className="margin-sides-10 cidade-input margin-phone">
                                 <label>Cidade</label>
-                                <input required list="cidade-list" className='input-cidade' type='text' name='cidade' value={cidade} onChange={this.handleChange} placeholder="Digite aqui o nome da sua cidade" />
+                                <input required list="cidade-list" className='input-cidade' type='text' name='cidade' value={cidade} onFocus={this.mudancaCidade} onChange={this.handleChange} placeholder="Digite aqui o nome da sua cidade" />
                                 <datalist id="cidade-list">
                                     {cidadeList}
                                 </datalist>
@@ -565,16 +560,6 @@ export default class Formulario extends React.Component {
                                 <div className='g-recaptcha'>
                                     {
                                         recaptchaLoaded ?
-                                            // <ReCaptcha
-                                            //     ref={(el) => { this.captchaDemo = el; }}
-                                            //     size="normal"
-                                            //     data-theme="dark"
-                                            //     render="explicit"
-                                            //     sitekey={site_key}
-                                            //     onloadCallback={this.onLoadRecaptcha}
-                                            //     verifyCallback={this.verifyCallback}
-                                            //     hl={"pt"}
-                                            // />
                                             <ReCAPTCHA
                                                 size="normal"
                                                 sitekey={site_key}
